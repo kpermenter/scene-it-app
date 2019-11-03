@@ -1,5 +1,5 @@
 * {
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: 'Special Elite', cursive;
     font-size: 18px;
 }
 
@@ -57,5 +57,13 @@ body {
 
 .btn {
 background-color: #DC4247;
+}
+
+.navbar {
+    background-color: rgb(228, 125, 129);
+}
+
+.navbar a {
+    color: rgb(0, 93, 126);
 }
 

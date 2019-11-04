@@ -18,14 +18,19 @@ document.addEventListener('DOMContentLoaded', function () {
         return movieHTML.join("");
 
     }
-    // var content = document.getElementById("movies-container");
-    // content.innerHTML = (renderMovies(movieData));
 
     document.getElementById("search-form").addEventListener("submit", function(event) {
         event.preventDefault();
 
-        var content = document.getElementById("movies-container");
-        content.innterHTML = renderMovies(movieData);
+        var searchString = document.getElementsByClassName("form-control search-bar").value;
+        var urlEncodedSearchString = encodeURIComponent(searchString);
+
+        axios.get("http://www.omdbapi.com/?apikey=3430a78&s=" + urlEncodedSearchString).then(function (response) {
+            var content = document.getElementById("movies-container");
+            content.innterHTML = renderMovies(response.data.Search);
+
+            console.log(response.data);
+    });
 
     });
 

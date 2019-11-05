@@ -22,12 +22,12 @@ document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("search-form").addEventListener("submit", function(event) {
         event.preventDefault();
 
-        var searchString = document.getElementsByClassName("form-control search-bar").value;
+        var searchString = document.getElementsByClassName("form-control search-bar")[0].value;
         var urlEncodedSearchString = encodeURIComponent(searchString);
 
         axios.get("http://www.omdbapi.com/?apikey=3430a78&s=" + urlEncodedSearchString).then(function (response) {
             var content = document.getElementById("movies-container");
-            content.innterHTML = renderMovies(response.data.Search);
+            content.innerHTML = renderMovies(response.data.Search);
 
             console.log(response.data);
     });
